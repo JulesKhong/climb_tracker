@@ -15,16 +15,20 @@
         <a class="navbar-brand" href="/">Climb Tracker</a>
       </div>
 
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Sign In", new_user_session_path %></li>
-        <li><%= link_to "Edit Account", edit_user_registration_path %></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+      <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Create Account", new_user_registration_path %></li>
+      <% end %>
       </ul>
     </div>
     </nav>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
     <div class="container site-content">
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
       <%= yield %>
     </div>
   </body>

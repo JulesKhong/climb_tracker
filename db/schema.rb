@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921183837) do
+ActiveRecord::Schema.define(version: 20160921234353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20160921183837) do
     t.integer "height"
     t.string  "rating"
     t.integer "rating_int"
-    t.integer "session_id"
+    t.integer "set_id"
   end
 
-  create_table "friends", force: :cascade do |t|
+  create_table "friendships", force: :cascade do |t|
     t.integer "profile_id"
     t.integer "friend_id"
   end
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160921183837) do
     t.datetime "updated_at",          null: false
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "sets", force: :cascade do |t|
     t.string  "notes"
     t.string  "type"
     t.string  "location"
