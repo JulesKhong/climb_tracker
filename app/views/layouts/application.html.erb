@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Climb Tracker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Climb Tracker</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %></li>
+      </ul>
+    </div>
+    </nav>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
