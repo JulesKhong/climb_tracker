@@ -19,6 +19,8 @@
 
     <% if @profile.climbing_entries.any? %>
       <% @profile.climbing_entries.each do |entry| %>
+      <div class="row">
+        <div class="col-md-6">
         <p><strong><%= entry.date %></strong> |
         <%= entry.climbing_style %> |
         <%= entry.location %> | <%= link_to 'Add a climb', new_climbing_entry_climb_path(entry) %></p>
@@ -26,12 +28,20 @@
         <% if entry.climbs.any? %>
         <ul>
           <% entry.climbs.each do |climb| %>
-            <li><%= climb.height %> | <%= climb.rating %></li>
+            <li><%= climb.height %> feet | Rating: <%= climb.rating_int %></li>
             <% end %>
         </ul>
           <% end %>
+        </div>
+        <div class="col-md-6">
+          <% if entry.climbs.length >= 3 %>
+        <%= column_chart [["Climb 1", entry.climbs.first.rating_int], ["Climb 2", entry.climbs.second.rating_int], ["Climb 3", entry.climbs.third.rating_int]]  %>
+        <%end%>
+        </div>
         <hr>
       <% end %>
+    </div>
     <% end %>
+  </div>
   </div>
 </div>

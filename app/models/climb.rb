@@ -1,7 +1,7 @@
 class Climb < ApplicationRecord
   belongs_to :climbing_entry
 
-  validates :height, :rating, :presence => true
+  validates :height, :rating_int, :presence => true
 
   after_save :update_total
   after_save :update_climb_total

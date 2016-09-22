@@ -21,7 +21,7 @@ class ClimbsController < ApplicationController
 
 private
   def climb_params
-    params.require(:climb).permit(:height, :rating)
+    params.require(:climb).permit(:height, :rating_int)
   end
 
 end
