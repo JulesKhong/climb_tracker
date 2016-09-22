@@ -10,7 +10,24 @@
 </nav>
 
 <div class="container site-content">
+  <div class="edit-form">
 
-  <h1> Hello <%= @profile.username %>! </h1>
+    <h1> Hello <%= @profile.username %>! </h1>
 
+    <% if @profile.climbing_entries.any? %>
+      <% @profile.climbing_entries.each do |entry| %>
+        <p><strong><%= entry.date %></strong> |
+        <%= entry.climbing_style %> |
+        <%= entry.location %> | <%= link_to 'Add a climb', new_climbing_entry_climb_path(entry) %></p>
+        <% if entry.climbs.any? %>
+        <ul>
+          <% entry.climbs.each do |climb| %>
+            <li><%= climb.height %> | <%= climb.rating %></li>
+            <% end %>
+        </ul>
+          <% end %>
+        <hr>
+      <% end %>
+    <% end %>
+  </div>
 </div>

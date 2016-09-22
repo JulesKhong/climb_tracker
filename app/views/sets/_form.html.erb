@@ -1,0 +1,18 @@
+<%= render "layouts/errors", :object => @climbing_entry %>
+
+<%= form_for [@profile, @climbing_entry] do |f|%>
+  <%= f.label :date %>
+  <%= f.date_field :date, :class => "form-control" %>
+  <%= f.label :time %>
+  <%= f.time_field :time, :class => "form-control" %>
+
+  <%= f.radio_button :climbing_style, "Bouldering" %>
+  <%= f.label :climbing_style, "Bouldering" %>
+  <%= f.radio_button :climbing_style, "Top-Rope Climbing" %>
+  <%= f.label :climbing_style, "Top-Rope Climbing" %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, :class => "form-control" %>
+  <%= f.hidden_field :profile_id, :value => @profile.id %>
+  <%= f.submit :class => "btn btn-success" %>
+<% end %>

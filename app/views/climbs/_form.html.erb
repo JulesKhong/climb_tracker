@@ -1,0 +1,11 @@
+<%= render "layouts/errors", :object => @climb %>
+
+<%= form_for [@climbing_entry, @climb] do |f|%>
+  <%= f.label :height %>
+  <%= f.text_field :height, :class => "form-control" %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating, :class => "form-control" %>
+
+  <%= f.hidden_field :climbing_entry_id, :value => @climbing_entry.id %>
+  <%= f.submit :class => "btn btn-success" %>
+<% end %>
