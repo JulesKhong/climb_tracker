@@ -1,3 +1,15 @@
 <div class="background-image">
+  <div class="container site-content">
+    <h1>Hi, <%= @profile.username %></h1>
+    <% if @users.any? %>
+      <h2>Find Friends:</h2>
+      <% @users.each do |user_friend| %>
+      <div class="">
+        <h4><%= user_friend.profile.username %> | Total height: <%= user_friend.profile.total %> | Total climbs: <%= user_friend.profile.total_climbs %> |
+      </div>
 
+      <hr>
+      <% end %>
+    <% end %>
+  </div>
 </div>
