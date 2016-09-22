@@ -9,8 +9,7 @@ class User < ApplicationRecord
   after_create :make_profile
 
   def make_profile
-    self.profile = Profile.new
-    self.save
+    self.profile = Profile.create
   end
 
 end

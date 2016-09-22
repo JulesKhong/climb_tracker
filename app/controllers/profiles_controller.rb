@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
-
+before_action :authenticate_user!
   def index
-    @profile = current_user.profile
     @user = current_user
+    @profile = @user.profile
   end
 
   def new
@@ -19,8 +19,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.new(profile_params)
-    if @profile.save
+    @profile = Profile.find(params[:id])
+    if @profile.update(profile_params)
       flash[:notice] = "Your profile has been updated!"
       redirect_to profile_path(@profile)
     else
