@@ -1,1 +1,16 @@
-<h1>This is the profile view</h1>
+<nav class="navbar navbar-inverse subnav">
+  <div class="container">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Add a Session", new_profile_set_path(@profile) %></li>
+          <li><%= link_to "Update profile", edit_profile_path(@profile) %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container site-content">
+
+  <h1> Hello <%= @profile.username %>! </h1>
+
+</div>

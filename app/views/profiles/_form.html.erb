@@ -1,0 +1,13 @@
+<%= render "layouts/errors", :object => @profile %>
+
+<%= form_for @profile do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username, :class => "form-control" %>
+
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar, :class => "form-control" %>
+
+  <%= f.hidden_field :user_id, :value => @user_id %>
+
+  <%= f.submit :class => "btn btn-success" %>
+<% end %>
