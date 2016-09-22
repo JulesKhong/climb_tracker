@@ -8,7 +8,9 @@ class Profile < ApplicationRecord
 
   def set_total
     self.total = 0
+    self.total_climbs = 0
     self.save
   end
+
 
 end

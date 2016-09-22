@@ -13,12 +13,16 @@
   <div class="edit-form">
 
     <h1> Hello <%= @profile.username %>! </h1>
+    <h3> Total height climbed: <%= @profile.total %> feet </h3>
+    <h3> Total number of climbs: <%= @profile.total_climbs %> </h3>
+    <hr>
 
     <% if @profile.climbing_entries.any? %>
       <% @profile.climbing_entries.each do |entry| %>
         <p><strong><%= entry.date %></strong> |
         <%= entry.climbing_style %> |
         <%= entry.location %> | <%= link_to 'Add a climb', new_climbing_entry_climb_path(entry) %></p>
+        <p><%= entry.notes %></p>
         <% if entry.climbs.any? %>
         <ul>
           <% entry.climbs.each do |climb| %>
