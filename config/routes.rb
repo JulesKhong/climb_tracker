@@ -2,12 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :sets do
-    resources :climbs
-  end
-
   resources :profiles do
-    resources :sets
+    resources :climbing_entries
   end
 
   resources :friendships

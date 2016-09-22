@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921234353) do
+ActiveRecord::Schema.define(version: 20160922204913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "climbing_entries", force: :cascade do |t|
+    t.string  "notes"
+    t.string  "climbing_style"
+    t.string  "location"
+    t.integer "profile_id"
+    t.date    "date"
+    t.time    "time"
+  end
 
   create_table "climbs", force: :cascade do |t|
     t.integer "height"
     t.string  "rating"
     t.integer "rating_int"
-    t.integer "set_id"
+    t.integer "climbing_entry_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -38,15 +47,6 @@ ActiveRecord::Schema.define(version: 20160921234353) do
     t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-  end
-
-  create_table "sets", force: :cascade do |t|
-    t.string  "notes"
-    t.string  "type"
-    t.string  "location"
-    t.integer "profile_id"
-    t.date    "date"
-    t.time    "time"
   end
 
   create_table "users", force: :cascade do |t|
