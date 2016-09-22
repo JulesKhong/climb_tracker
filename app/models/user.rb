@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
   has_one :profile
 
+  after_create :make_profile
+
+  def make_profile
+    self.profile = Profile.new
+    self.save
+  end
+
 end

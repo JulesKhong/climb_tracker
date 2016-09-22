@@ -2,5 +2,25 @@
 @import "bootstrap";
 
 .site-content {
-  margin-top: 100px;
+  padding-top: 200px;
+}
+
+.background-image {
+  margin-top: 0px;
+  background: url("/images/Unsplash_background.jpeg");
+  width: auto;
+  height: 1000px;
+  background-size: cover;
+}
+
+.flash {
+  margin-top: 15px;
+  text-align: center;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+body {
+  background-color: black;
 }
